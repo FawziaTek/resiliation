@@ -1,0 +1,236 @@
+import org.drools.core.process.core.datatype.impl.type.StringDataType;
+import org.drools.core.process.core.datatype.impl.type.ObjectDataType;
+
+[
+  [
+    "name" : "AjoutoccWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Add OCC",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+ [
+    "name" : "AppelgpsWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Call GPS for payment",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "MainprepareresiliationWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Prepare Resiliation",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "MigtoprecreatectrWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Create Contract",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "MigtopredesactivatectrWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Contract Desactivation",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "MigtopreprepareWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Prepare for Migration to PRE",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "ModifycontractdfeWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Modify Contract DFE",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "SuspendcontractWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Suspend Contract",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "UpdateresiliationWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Update Resiliation",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+
+   [
+    "name" : "VerifypaymentgpsWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Verify Payment in GPS",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "ChangerateplanWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Change Rate Plan",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "GetfatotalWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Get FA for Total",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "GetmigrationtypeWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Get Migration Group",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "NotificationsmsWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "SMS Notification",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "NotificationmailWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Mail Notification",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "VerifypendingWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Verify pending Before Contract Suspension",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "VerifypendingWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Verify pending",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "PercistResiliationOrderWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "add Order",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "UpdateResiliationOrderWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "update Resiliation Order",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "PrepareResiliationContractWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "prepare Resiliation Contract",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+   [
+    "name" : "getBalanceResINWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "get balance IN",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "adjustBalanceResINWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "adjust balance IN",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "setOCCContractWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "set OCC Contract",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+  [
+    "name" : "changeBillCycleResiliationWIH",
+
+    "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "adjust FAF",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+ [
+    "name" : "AjoutoccContractWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Add OCC Contract",
+    "icon" : "defaultservicenodeicon.png"
+  ],
+ [
+    "name" : "UpdateStatusWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Update Status",
+     "icon" : "defaultservicenodeicon.png"
+
+  ],
+  
+ [
+    "name" : "UpdateOrderWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Update Order",
+     "icon" : "defaultservicenodeicon.png"
+
+  ],
+  [
+    "name" : "InsertBalanceWIH",
+      "results" : [
+        "Result" : new StringDataType()
+    ],
+    "displayName" : "Insert Balance IN",
+     "icon" : "defaultservicenodeicon.png"
+
+  ]
+
+]
