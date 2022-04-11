@@ -1,0 +1,676 @@
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://alu.services.ws.lhs.com" xmlns:intf="http://alu.services.ws.lhs.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://alu.services.ws.lhs.com">
+<!-- WSDL created by Apache Axis version: 1.4
+Built on Apr 09, 2009 (02:08:07 CEST) -->
+<wsdl:types>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://alu.services.ws.lhs.com">
+<complexType name="GetMontantFactureRequest">
+<sequence>
+<element name="csId" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<element name="getMontantFactureRequest" type="impl:GetMontantFactureRequest"/>
+<complexType name="OperationResponse">
+<sequence>
+<element name="bscsErrorCode" nillable="true" type="xsd:string"/>
+<element name="comment" nillable="true" type="xsd:string"/>
+<element name="isSuccessful" nillable="true" type="xsd:boolean"/>
+</sequence>
+</complexType>
+<complexType name="BaseSOIBean">
+<sequence/>
+</complexType>
+<complexType name="MoneyBean">
+<complexContent>
+<extension base="impl:BaseSOIBean">
+<sequence>
+<element name="amount" nillable="true" type="xsd:double"/>
+<element name="currency" nillable="true" type="xsd:string"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<complexType name="GetMontantFactureResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="montant" nillable="true" type="impl:MoneyBean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="getMontantFactureReturn" type="impl:GetMontantFactureResponse"/>
+<complexType name="ChangeRatePlanResiliationRequest">
+<sequence>
+<element name="coId" nillable="true" type="xsd:long"/>
+<element name="rpCodeTarget" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<element name="changeRatePlanRequest" type="impl:ChangeRatePlanResiliationRequest"/>
+<complexType name="ChangeRatePlanResiliationResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="finished" type="xsd:boolean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="changeRateplanforResiliationReturn" type="impl:ChangeRatePlanResiliationResponse"/>
+<complexType name="ArrayOf_xsd_long">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:long"/>
+</sequence>
+</complexType>
+<complexType name="GetCalculatedFaccTotaleRequest">
+<sequence>
+<element name="caseCrm" nillable="true" type="xsd:string"/>
+<element name="coIdList" nillable="true" type="impl:ArrayOf_xsd_long"/>
+<element name="customerID" nillable="true" type="xsd:long"/>
+<element name="duDate" nillable="true" type="xsd:dateTime"/>
+<element name="motif" nillable="true" type="xsd:string"/>
+<element name="motifClient" nillable="true" type="xsd:string"/>
+</sequence>
+</complexType>
+<element name="getcalculatedFaccTotaleRequest" type="impl:GetCalculatedFaccTotaleRequest"/>
+<complexType name="BeanTax">
+<sequence>
+<element name="descriptionTax" nillable="true" type="xsd:string"/>
+<element name="montantTaxe" nillable="true" type="xsd:string"/>
+<element name="valeurTaxe" nillable="true" type="xsd:string"/>
+</sequence>
+</complexType>
+<complexType name="ArrayOfBeanTax">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:BeanTax"/>
+</sequence>
+</complexType>
+<complexType name="FraisAcc">
+<sequence>
+<element name="beanTax" nillable="true" type="impl:ArrayOfBeanTax"/>
+<element name="codeContrat" nillable="true" type="xsd:string"/>
+<element name="coid" nillable="true" type="xsd:long"/>
+<element name="dateDebut" nillable="true" type="xsd:string"/>
+<element name="dateFin" nillable="true" type="xsd:string"/>
+<element name="montantFA" nillable="true" type="xsd:double"/>
+<element name="montantFaTTC" type="xsd:double"/>
+<element name="msisdn" nillable="true" type="xsd:string"/>
+<element name="nbreMoisRestant" nillable="true" type="xsd:long"/>
+<element name="offreAct" nillable="true" type="xsd:string"/>
+<element name="remise" nillable="true" type="xsd:string"/>
+<element name="tmcode" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<complexType name="ArrayOfFraisAcc">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:FraisAcc"/>
+</sequence>
+</complexType>
+<complexType name="GetCalculatedFaccTotaleResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="bean" nillable="true" type="impl:ArrayOfFraisAcc"/>
+<element name="montantTotal" nillable="true" type="xsd:double"/>
+<element name="montantTotalTax" nillable="true" type="xsd:double"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="getcalculatedFaccTotaleReturn" type="impl:GetCalculatedFaccTotaleResponse"/>
+<complexType name="GetCustomerOfferAndStatistiqueRequest">
+<sequence>
+<element name="customerId" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<element name="getCustomerOffreRequest" type="impl:GetCustomerOfferAndStatistiqueRequest"/>
+<complexType name="CustomerOffreBean">
+<sequence>
+<element name="des" nillable="true" type="xsd:string"/>
+<element name="nomberContrats" type="xsd:int"/>
+<element name="shdes" nillable="true" type="xsd:string"/>
+<element name="tmcode" type="xsd:int"/>
+</sequence>
+</complexType>
+<complexType name="ArrayOfCustomerOffreBean">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:CustomerOffreBean"/>
+</sequence>
+</complexType>
+<complexType name="GetCustomerOfferAndStatistiqueResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="customerOffreBean" nillable="true" type="impl:ArrayOfCustomerOffreBean"/>
+<element name="nombreContratsTotal" type="xsd:int"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="getCustomerOfferAndStatistiqueReturn" type="impl:GetCustomerOfferAndStatistiqueResponse"/>
+<complexType name="CreateContractResRequest">
+<sequence>
+<element name="coId" nillable="true" type="xsd:long"/>
+<element name="rpCode" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<element name="createContractResRequest" type="impl:CreateContractResRequest"/>
+<complexType name="CreateContractResResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="coId" nillable="true" type="xsd:long"/>
+<element name="coIdPub" nillable="true" type="xsd:string"/>
+<element name="created" type="xsd:boolean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="createContractForResiliationReturn" type="impl:CreateContractResResponse"/>
+<complexType name="ContractIdentificationBean">
+<sequence>
+<element name="contractCode" nillable="true" type="xsd:string"/>
+<element name="msisdn" nillable="true" type="xsd:long"/>
+<element name="statusContract" nillable="true" type="xsd:string"/>
+<element name="tmcode" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<complexType name="GetListContractsRequest">
+<sequence>
+<element name="contractIdentification" nillable="true" type="impl:ContractIdentificationBean"/>
+<element name="customerId" nillable="true" type="xsd:long"/>
+<element name="dateFinEngDebut" nillable="true" type="xsd:dateTime"/>
+<element name="dateFinEngFin" nillable="true" type="xsd:dateTime"/>
+<element name="isTotale" nillable="true" type="xsd:boolean"/>
+</sequence>
+</complexType>
+<element name="getListContractsRequest" type="impl:GetListContractsRequest"/>
+<complexType name="ContractBean">
+<sequence>
+<element name="coCode" nillable="true" type="xsd:string"/>
+<element name="coId" nillable="true" type="xsd:long"/>
+<element name="contractStatus" nillable="true" type="xsd:string"/>
+<element name="dateFinEng" nillable="true" type="xsd:dateTime"/>
+<element name="msisdn" nillable="true" type="xsd:string"/>
+<element name="offreAct" nillable="true" type="xsd:string"/>
+<element name="sccode" nillable="true" type="xsd:int"/>
+<element name="subm_id" nillable="true" type="xsd:int"/>
+<element name="tmcode" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<complexType name="ArrayOfContractBean">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:ContractBean"/>
+</sequence>
+</complexType>
+<complexType name="ResultResiliationBean">
+<sequence>
+<element name="contracts" nillable="true" type="impl:ArrayOfContractBean"/>
+<element name="elig" type="xsd:boolean"/>
+</sequence>
+</complexType>
+<complexType name="ArrayOfResultResiliationBean">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:ResultResiliationBean"/>
+</sequence>
+</complexType>
+<complexType name="GetListContractsResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="beans" nillable="true" type="impl:ArrayOfResultResiliationBean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="getContractsListForResiliationReturn" type="impl:GetListContractsResponse"/>
+<complexType name="InsertScheduledJobRequest">
+<sequence>
+<element name="coId" nillable="true" type="xsd:long"/>
+<element name="csId" nillable="true" type="xsd:long"/>
+<element name="dateExecution" nillable="true" type="xsd:dateTime"/>
+<element name="jobTypeId" nillable="true" type="xsd:long"/>
+<element name="remarque" nillable="true" type="xsd:string"/>
+</sequence>
+</complexType>
+<element name="insertScheduledRequest" type="impl:InsertScheduledJobRequest"/>
+<complexType name="InsertScheduledJobResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="jobId" nillable="true" type="xsd:long"/>
+<element name="jobIdPub" nillable="true" type="xsd:string"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="insertScheduledJobReturn" type="impl:InsertScheduledJobResponse"/>
+<complexType name="GetCustomerRequestDetailsRequest">
+<sequence>
+<element name="customerId" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<element name="getCustomerRequestDetailsRequest" type="impl:GetCustomerRequestDetailsRequest"/>
+<complexType name="CustomerRequestBean">
+<sequence>
+<element name="caseCrm" nillable="true" type="xsd:string"/>
+<element name="customerCode" nillable="true" type="xsd:string"/>
+<element name="duDate" nillable="true" type="xsd:dateTime"/>
+<element name="erroreMessage" nillable="true" type="xsd:string"/>
+<element name="motif" nillable="true" type="xsd:string"/>
+<element name="motifClient" nillable="true" type="xsd:string"/>
+<element name="requestId" type="xsd:int"/>
+<element name="status" nillable="true" type="xsd:string"/>
+<element name="totaleAmountToPaid" type="xsd:double"/>
+<element name="totaleAmountToPaidTax" nillable="true" type="xsd:double"/>
+</sequence>
+</complexType>
+<complexType name="ArrayOfCustomerRequestBean">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:CustomerRequestBean"/>
+</sequence>
+</complexType>
+<complexType name="GetCustomerRequestDetailsResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="customerRequestBean" nillable="true" type="impl:ArrayOfCustomerRequestBean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="getCustomerRequestDetailsReturn" type="impl:GetCustomerRequestDetailsResponse"/>
+<complexType name="UpdateStatusDemandeHistRequest">
+<sequence>
+<element name="customerId" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<element name="updateStatusDemandeHistRequest" type="impl:UpdateStatusDemandeHistRequest"/>
+<complexType name="UpdateStatusDemandeHistResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="finished" nillable="true" type="xsd:boolean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="UpdateStatusDemandeHistReturn" type="impl:UpdateStatusDemandeHistResponse"/>
+<complexType name="CalculateAccelerationForResiliationRequest">
+<sequence>
+<element name="coIdList" nillable="true" type="impl:ArrayOf_xsd_long"/>
+<element name="customerID" nillable="true" type="xsd:long"/>
+<element name="dueDate" nillable="true" type="xsd:dateTime"/>
+<element name="motif" nillable="true" type="xsd:string"/>
+</sequence>
+</complexType>
+<element name="calculateAccelerationRequest" type="impl:CalculateAccelerationForResiliationRequest"/>
+<complexType name="CalculateAccelerationForResiliationResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="bean" nillable="true" type="impl:ArrayOfFraisAcc"/>
+<element name="montantTotal" nillable="true" type="xsd:double"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="calculateAccelerationForResiliationReturn" type="impl:CalculateAccelerationForResiliationResponse"/>
+<complexType name="ContractOccBean">
+<sequence>
+<element name="amoutCoid" nillable="true" type="xsd:double"/>
+<element name="coId" nillable="true" type="xsd:long"/>
+</sequence>
+</complexType>
+<complexType name="ArrayOfContractOccBean">
+<sequence>
+<element maxOccurs="unbounded" minOccurs="0" name="item" type="impl:ContractOccBean"/>
+</sequence>
+</complexType>
+<complexType name="DateBean">
+<complexContent>
+<extension base="impl:BaseSOIBean">
+<sequence>
+<element name="date" nillable="true" type="xsd:dateTime"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<complexType name="SetOccRequest">
+<sequence>
+<element name="amount" nillable="true" type="xsd:double"/>
+<element name="coIdList" nillable="true" type="impl:ArrayOfContractOccBean"/>
+<element name="csId" nillable="true" type="xsd:long"/>
+<element name="remark" nillable="true" type="xsd:string"/>
+<element name="snCode" nillable="true" type="xsd:long"/>
+<element name="spCode" nillable="true" type="xsd:long"/>
+<element name="validFrom" nillable="true" type="impl:DateBean"/>
+</sequence>
+</complexType>
+<element name="setOccRequest" type="impl:SetOccRequest"/>
+<complexType name="SetOccResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence>
+<element name="finished" type="xsd:boolean"/>
+</sequence>
+</extension>
+</complexContent>
+</complexType>
+<element name="setOccReturn" type="impl:SetOccResponse"/>
+<complexType name="AddFaccRequest">
+<sequence>
+<element name="caseCrm" nillable="true" type="xsd:string"/>
+<element name="customerID" nillable="true" type="xsd:long"/>
+<element name="dueDate" nillable="true" type="xsd:dateTime"/>
+<element name="motif" nillable="true" type="xsd:string"/>
+<element name="motifClient" nillable="true" type="xsd:string"/>
+</sequence>
+</complexType>
+<element name="addFacc" type="impl:AddFaccRequest"/>
+<complexType name="AddFaccResponse">
+<complexContent>
+<extension base="impl:OperationResponse">
+<sequence/>
+</extension>
+</complexContent>
+</complexType>
+<element name="addFaccRequestReturn" type="impl:AddFaccResponse"/>
+<element name="UnexpectedErrorFault" type="impl:UnexpectedErrorFault"/>
+<complexType name="UnexpectedErrorFault">
+<sequence>
+<element name="faultcode" type="xsd:string"/>
+<element name="faultstring" type="xsd:string"/>
+</sequence>
+</complexType>
+</schema>
+</wsdl:types>
+<wsdl:message name="getMontantFactureResponse">
+<wsdl:part element="impl:getMontantFactureReturn" name="getMontantFactureReturn"/>
+</wsdl:message>
+<wsdl:message name="changeRateplanforResiliationResponse">
+<wsdl:part element="impl:changeRateplanforResiliationReturn" name="changeRateplanforResiliationReturn"/>
+</wsdl:message>
+<wsdl:message name="setOccResponse">
+<wsdl:part element="impl:setOccReturn" name="setOccReturn"/>
+</wsdl:message>
+<wsdl:message name="UnexpectedError">
+<wsdl:part element="impl:UnexpectedErrorFault" name="UnexpectedError"/>
+</wsdl:message>
+<wsdl:message name="UpdateStatusDemandeHistRequest">
+<wsdl:part element="impl:updateStatusDemandeHistRequest" name="updateStatusDemandeHistRequest"/>
+</wsdl:message>
+<wsdl:message name="insertScheduledJobRequest">
+<wsdl:part element="impl:insertScheduledRequest" name="insertScheduledRequest"/>
+</wsdl:message>
+<wsdl:message name="changeRateplanforResiliationRequest">
+<wsdl:part element="impl:changeRatePlanRequest" name="changeRatePlanRequest"/>
+</wsdl:message>
+<wsdl:message name="calculateAccelerationForResiliationResponse">
+<wsdl:part element="impl:calculateAccelerationForResiliationReturn" name="calculateAccelerationForResiliationReturn"/>
+</wsdl:message>
+<wsdl:message name="getCustomerOfferAndStatistiqueRequest">
+<wsdl:part element="impl:getCustomerOffreRequest" name="getCustomerOffreRequest"/>
+</wsdl:message>
+<wsdl:message name="getCustomerRequestDetailsResponse">
+<wsdl:part element="impl:getCustomerRequestDetailsReturn" name="getCustomerRequestDetailsReturn"/>
+</wsdl:message>
+<wsdl:message name="getCustomerOfferAndStatistiqueResponse">
+<wsdl:part element="impl:getCustomerOfferAndStatistiqueReturn" name="getCustomerOfferAndStatistiqueReturn"/>
+</wsdl:message>
+<wsdl:message name="calculateAccelerationForResiliationRequest">
+<wsdl:part element="impl:calculateAccelerationRequest" name="calculateAccelerationRequest"/>
+</wsdl:message>
+<wsdl:message name="getcalculatedFaccTotaleRequest">
+<wsdl:part element="impl:getcalculatedFaccTotaleRequest" name="getcalculatedFaccTotaleRequest"/>
+</wsdl:message>
+<wsdl:message name="getContractsListForResiliationResponse">
+<wsdl:part element="impl:getContractsListForResiliationReturn" name="getContractsListForResiliationReturn"/>
+</wsdl:message>
+<wsdl:message name="getMontantFactureRequest">
+<wsdl:part element="impl:getMontantFactureRequest" name="getMontantFactureRequest"/>
+</wsdl:message>
+<wsdl:message name="createContractForResiliationResponse">
+<wsdl:part element="impl:createContractForResiliationReturn" name="createContractForResiliationReturn"/>
+</wsdl:message>
+<wsdl:message name="createContractForResiliationRequest">
+<wsdl:part element="impl:createContractResRequest" name="createContractResRequest"/>
+</wsdl:message>
+<wsdl:message name="UpdateStatusDemandeHistResponse">
+<wsdl:part element="impl:UpdateStatusDemandeHistReturn" name="UpdateStatusDemandeHistReturn"/>
+</wsdl:message>
+<wsdl:message name="setOccRequest">
+<wsdl:part element="impl:setOccRequest" name="setOccRequest"/>
+</wsdl:message>
+<wsdl:message name="addFaccRequestRequest">
+<wsdl:part element="impl:addFacc" name="addFacc"/>
+</wsdl:message>
+<wsdl:message name="getContractsListForResiliationRequest">
+<wsdl:part element="impl:getListContractsRequest" name="getListContractsRequest"/>
+</wsdl:message>
+<wsdl:message name="getcalculatedFaccTotaleResponse">
+<wsdl:part element="impl:getcalculatedFaccTotaleReturn" name="getcalculatedFaccTotaleReturn"/>
+</wsdl:message>
+<wsdl:message name="getCustomerRequestDetailsRequest">
+<wsdl:part element="impl:getCustomerRequestDetailsRequest" name="getCustomerRequestDetailsRequest"/>
+</wsdl:message>
+<wsdl:message name="insertScheduledJobResponse">
+<wsdl:part element="impl:insertScheduledJobReturn" name="insertScheduledJobReturn"/>
+</wsdl:message>
+<wsdl:message name="addFaccRequestResponse">
+<wsdl:part element="impl:addFaccRequestReturn" name="addFaccRequestReturn"/>
+</wsdl:message>
+<wsdl:portType name="ResiliationHandling">
+<wsdl:operation name="getMontantFacture" parameterOrder="getMontantFactureRequest">
+<wsdl:input message="impl:getMontantFactureRequest" name="getMontantFactureRequest"/>
+<wsdl:output message="impl:getMontantFactureResponse" name="getMontantFactureResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="changeRateplanforResiliation" parameterOrder="changeRatePlanRequest">
+<wsdl:input message="impl:changeRateplanforResiliationRequest" name="changeRateplanforResiliationRequest"/>
+<wsdl:output message="impl:changeRateplanforResiliationResponse" name="changeRateplanforResiliationResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="getcalculatedFaccTotale" parameterOrder="getcalculatedFaccTotaleRequest">
+<wsdl:input message="impl:getcalculatedFaccTotaleRequest" name="getcalculatedFaccTotaleRequest"/>
+<wsdl:output message="impl:getcalculatedFaccTotaleResponse" name="getcalculatedFaccTotaleResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="getCustomerOfferAndStatistique" parameterOrder="getCustomerOffreRequest">
+<wsdl:input message="impl:getCustomerOfferAndStatistiqueRequest" name="getCustomerOfferAndStatistiqueRequest"/>
+<wsdl:output message="impl:getCustomerOfferAndStatistiqueResponse" name="getCustomerOfferAndStatistiqueResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="createContractForResiliation" parameterOrder="createContractResRequest">
+<wsdl:input message="impl:createContractForResiliationRequest" name="createContractForResiliationRequest"/>
+<wsdl:output message="impl:createContractForResiliationResponse" name="createContractForResiliationResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="getContractsListForResiliation" parameterOrder="getListContractsRequest">
+<wsdl:input message="impl:getContractsListForResiliationRequest" name="getContractsListForResiliationRequest"/>
+<wsdl:output message="impl:getContractsListForResiliationResponse" name="getContractsListForResiliationResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="insertScheduledJob" parameterOrder="insertScheduledRequest">
+<wsdl:input message="impl:insertScheduledJobRequest" name="insertScheduledJobRequest"/>
+<wsdl:output message="impl:insertScheduledJobResponse" name="insertScheduledJobResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="getCustomerRequestDetails" parameterOrder="getCustomerRequestDetailsRequest">
+<wsdl:input message="impl:getCustomerRequestDetailsRequest" name="getCustomerRequestDetailsRequest"/>
+<wsdl:output message="impl:getCustomerRequestDetailsResponse" name="getCustomerRequestDetailsResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="UpdateStatusDemandeHist" parameterOrder="updateStatusDemandeHistRequest">
+<wsdl:input message="impl:UpdateStatusDemandeHistRequest" name="UpdateStatusDemandeHistRequest"/>
+<wsdl:output message="impl:UpdateStatusDemandeHistResponse" name="UpdateStatusDemandeHistResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="calculateAccelerationForResiliation" parameterOrder="calculateAccelerationRequest">
+<wsdl:input message="impl:calculateAccelerationForResiliationRequest" name="calculateAccelerationForResiliationRequest"/>
+<wsdl:output message="impl:calculateAccelerationForResiliationResponse" name="calculateAccelerationForResiliationResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="setOcc" parameterOrder="setOccRequest">
+<wsdl:input message="impl:setOccRequest" name="setOccRequest"/>
+<wsdl:output message="impl:setOccResponse" name="setOccResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+<wsdl:operation name="addFaccRequest" parameterOrder="addFacc">
+<wsdl:input message="impl:addFaccRequestRequest" name="addFaccRequestRequest"/>
+<wsdl:output message="impl:addFaccRequestResponse" name="addFaccRequestResponse"/>
+<wsdl:fault message="impl:UnexpectedError" name="UnexpectedError"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="ResiliationHandlingSoapBinding" type="impl:ResiliationHandling">
+<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="getMontantFacture">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="getMontantFactureRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getMontantFactureResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="changeRateplanforResiliation">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="changeRateplanforResiliationRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="changeRateplanforResiliationResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getcalculatedFaccTotale">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="getcalculatedFaccTotaleRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getcalculatedFaccTotaleResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getCustomerOfferAndStatistique">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="getCustomerOfferAndStatistiqueRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getCustomerOfferAndStatistiqueResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="createContractForResiliation">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="createContractForResiliationRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="createContractForResiliationResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getContractsListForResiliation">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="getContractsListForResiliationRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getContractsListForResiliationResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="insertScheduledJob">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="insertScheduledJobRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="insertScheduledJobResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="getCustomerRequestDetails">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="getCustomerRequestDetailsRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="getCustomerRequestDetailsResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="UpdateStatusDemandeHist">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="UpdateStatusDemandeHistRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="UpdateStatusDemandeHistResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="calculateAccelerationForResiliation">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="calculateAccelerationForResiliationRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="calculateAccelerationForResiliationResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="setOcc">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="setOccRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="setOccResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+<wsdl:operation name="addFaccRequest">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="addFaccRequestRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addFaccRequestResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+<wsdl:fault name="UnexpectedError">
+<wsdlsoap:fault name="UnexpectedError" use="literal"/>
+</wsdl:fault>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="ResiliationHandlingService">
+<wsdl:port binding="impl:ResiliationHandlingSoapBinding" name="ResiliationHandling">
+<wsdlsoap:address location="http://192.168.1.11:8080/BscsWs/services/ResiliationHandling"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
